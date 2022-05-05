@@ -82,13 +82,13 @@
     .Header {
       max-width: 320px;
     }
-  }
   
   .row {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
   }
+ }
   
   @media (max-width: 400px) {
     .Header {
