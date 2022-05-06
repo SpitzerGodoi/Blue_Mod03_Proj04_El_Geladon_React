@@ -3,14 +3,28 @@ import PaletaLista from "components/PaletaLista/PaletaLista";
 import Navbar from "components/Navbar/Navbar";
 import AdicionaEditaPaletaModal from "components/AdicionaEditaPaletaModal/AdicionaEditaPaletaModal";
 import { useState } from "react";
+import { ActionMode } from "constants/index";
 
 function Home() {
   const [canShowAdicionaPaletaModal, setCanShowAdicionaPaletaModal] =
     useState(false);
+
   const [paletaParaAdicionar, setPaletaParaAdicionar] = useState();
+
+  const [modoAtual, setModoAtual] = useState(ActionMode.NORMAL);
+
+  const handleActions = (action) => {
+    const novaAcao = modoAtual === action ? ActionMode.NORMAL : action;
+    setModoAtual(novaAcao);
+  };
+
   return (
     <div className="Home">
-      <Navbar createPaleta={() => setCanShowAdicionaPaletaModal(true)} />
+      <Navbar
+        mode={modoAtual}
+        createPaleta={() => setCanShowAdicionaPaletaModal(true)}
+        updatePaleta={() => handleActions(ActionMode.ATUALIZAR)}
+      />
       <div className="Home__container">
         <PaletaLista paletaCriada={paletaParaAdicionar} />
         {canShowAdicionaPaletaModal && (
