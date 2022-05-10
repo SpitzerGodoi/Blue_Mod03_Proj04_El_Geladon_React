@@ -44,7 +44,7 @@ function AdicionaEditaPaletaModal({
   });
 
   const handleSend = async () => {
-    const renomeiaCaminhoFoto = (fotoPath) => fotoPath.split("/\\|//").pop();
+    const renomeiaCaminhoFoto = (fotoPath) => fotoPath.split(/\\|\//).pop();
 
     const { sabor, recheio, descricao, preco, foto } = state;
 
