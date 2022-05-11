@@ -16,7 +16,7 @@ const SacolaContext = {
 };
 
 export const Api = {
-  baseUrl: "https://api-elgeladon.herokuapp.com",
+  baseUrl: "https://apielgeladon-blueedtech-fullstack.onrender.com",
   ...PaletaContext,
   ...SacolaContext,
 };
